@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const webpackMode = process.env.NODE_ENV || 'development';
 
@@ -18,5 +19,10 @@ module.exports = {
       template: './src/index.html', // HTML 템플릿 파일 경로
       filename: 'index.html', // 생성될 HTML 파일 이름
     }),
+    new CopyWebpackPlugin({
+			patterns: [
+				{ from: "./src/assets/img", to: "./assets/img" },
+			],
+		})
   ],
 };

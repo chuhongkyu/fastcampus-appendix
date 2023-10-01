@@ -4,4 +4,6 @@
 npm inity -y
 npm install webpack-dev-server --save-dev
 npm install html-webpack-plugin --save-dev
+npm install copy-webpack-plugin --save-dev
+npm install --save-dev cross-env
 npm i gsap
