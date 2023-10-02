@@ -1,33 +1,17 @@
-// var FRAMES = 148;
-// var FPS = 30;
-// var video = document.getElementById('video');
-
-// window.addEventListener('scroll', function (e) {
-//   var time = (window.scrollY / 1000) * FRAMES / FPS;
-//   video.currentTime = time;
-//   console.log(time);
-//   // alert('Hizo scroll')
-// });
-
-// window.addEventListener('load', function(e) {
-//   video.pause();
-//   video.currentTime = 0;
-// });
-
 const html = document.documentElement;
 const canvas = document.getElementById("scrollAnimation");
 const context = canvas.getContext("2d");
 const copy = document.getElementById("copyExample");
 
-const frameCount = 148;
+const frameCount = 355;
 const currentFrame = index => (
-  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+  `/assets/img/${index}.jpg`
 )
 
 const img = new Image()
 img.src = currentFrame(1);
-canvas.width=1158;
-canvas.height=770;
+canvas.width= 1280;
+canvas.height=740;
 img.onload=function(){
   context.drawImage(img, 0, 0);
 }
