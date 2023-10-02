@@ -1,3 +1,6 @@
+
+
+export function pageExample02 () {
 const html = document.documentElement;
 const canvas = document.getElementById("scrollAnimation");
 const context = canvas.getContext("2d");
@@ -46,3 +49,5 @@ const preloadImages = () => {
 };
 
 preloadImages()
+
+}

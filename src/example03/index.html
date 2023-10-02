@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+  height: 100vh;
+}
+
+body {
+  height: 500vh;
+  width: 100vh;
+  justify-content: center;
+  background-color: black;
+}
+
+canvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+#copyExample {
+  color: white;
+  position: sticky;
+  font-size: 50px;
+}
+    </style>
+  </head>
+  <body>
+    <main id="main-03">
+        <canvas id="scrollAnimation"></canvas>
+        <p id="copyExample">AirPods</p>
+    </main>
+  <script src="../bundle.js"></script>
+</body>
+</html>
