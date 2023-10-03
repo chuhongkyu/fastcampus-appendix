@@ -4,38 +4,25 @@
     <meta charset="utf-8" />
     <title>Scroll</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      html {
-  height: 100vh;
-}
-
-body {
-  height: 500vh;
-  width: 100vh;
-  justify-content: center;
-  background-color: black;
-}
-
-canvas {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100vw;
-  max-height: 100vh;
-}
-
-#copyExample {
-  color: white;
-  position: sticky;
-  font-size: 50px;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="../example03/index.css">
   </head>
   <body>
     <main id="main-03">
-        <canvas id="scrollAnimation"></canvas>
-        <p id="copyExample">AirPods</p>
+      <section class="scroll-container">
+        <div class="video-container">
+          <canvas id="scrollAnimation"></canvas>
+          <h1 id="title" style="opacity:0">City</h1>
+        </div>
+      </section>
+      <section class="scroll-container" style="background-color: blue;">
+        <h2>다다다</h2>
+      </section>
+      <section class="scroll-container" style="background-color: yellow;">
+        <h2>다다다</h2>
+      </section>
+      <section class="scroll-container" style="background-color: greenyellow;">
+        <h2>다다다</h2>
+      </section>
     </main>
   <script src="../bundle.js"></script>
 </body>

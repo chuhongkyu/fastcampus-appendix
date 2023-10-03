@@ -3,9 +3,9 @@ export function pageExample03 () {
 const html = document.documentElement;
 const canvas = document.getElementById("scrollAnimation");
 const context = canvas.getContext("2d");
-const copy = document.getElementById("copyExample");
+const copy = document.getElementById("title");
 
-const frameCount = 355;
+const frameCount = 480;
 const currentFrame = index => (
   `/assets/img/${index}.jpg`
 )
@@ -24,19 +24,18 @@ const updateImage = index => {
 }
 
 window.addEventListener('scroll', () => {  
-  // how far has the user scrolled 
   const scrollTop = html.scrollTop;
-  // maximum that the user can scroll inside the current window
+  console.log('scrollTop', scrollTop);
   const maxScrollTop = html.scrollHeight - window.innerHeight
+  console.log('maxScrollTop', maxScrollTop);
   const scrollFraction = scrollTop / maxScrollTop;
-  // when hits half way then opacity is 1 otherwise opacity moves towards 0
+  
   copy.style.opacity = scrollFraction > 0.5 ? (1 - scrollFraction) : scrollFraction * 2;
   const frameIndex = Math.min(
     frameCount - 1,
     Math.ceil(scrollFraction * frameCount)
   );
   
-  // The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser calls a specified function to update an animation before the next repaint
   requestAnimationFrame(() => updateImage(frameIndex + 1))
 });
 
