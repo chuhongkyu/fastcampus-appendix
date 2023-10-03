@@ -1,0 +1,78 @@
+@import "reset.css";
+
+  body {
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    background-color: black;
+  }
+
+  #main-04{
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+  }
+
+  .scroll-container{
+    width: 100%;
+    height: 100vh;
+    /* position: sticky;
+    top: 0; */
+  }
+  
+  .scroll-container.first{
+    height: 500vh;
+  }
+
+  .scroll-container.second{
+    background-color: #fff;
+    position: relative;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+.horizon_box { 
+  position: absolute; 
+  top: 50%; 
+  left: 100%; 
+  transform: translateY(-50%);
+}
+.box { display: flex; justify-content: center; align-items: center; width: 150px; height: 150px; }
+.box h1 { font-size: 50px; text-align: center; }
+.box2 { background: crimson; }
+.box3 { background: darkorchid; }
+
+
+  .container{
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .second-title{
+    color: black;
+    font-size: 32px;
+  }
+
+  .video-container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+
+  canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+
+  #title {
+    color: white;
+    top: 1rem;
+    left: 0.5rem;
+    position: absolute;
+    font-size: 50px;
+  }
