@@ -14,6 +14,8 @@ function init(){
     pageExample03() 
   }else if(pageId === 'main-04'){
     pageExample04() 
+  }else if(pageId === 'main-05'){
+    pageExample05() 
   }
 }
 

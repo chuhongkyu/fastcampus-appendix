@@ -26,7 +26,7 @@ module.exports = {
         { from: "./src/example02", to: "./example02" },
         { from: "./src/example03", to: "./example03" },
         { from: "./src/example04", to: "./example04" },
-        // { from: "./src/example05", to: "./example05" },
+        { from: "./src/example05", to: "./example05" },
 			],
 		})
   ],
