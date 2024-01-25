@@ -1,20 +1,18 @@
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // GSAP ScrollTrigger 가져오기
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger); 
 
 export function pageExample04 () {
-  sectionFirst()
-  sectionSecond()
-  
+
+  makeMainVideo()
+  makeSection()
 }
 
-const sectionFirst = () => {
+const makeMainVideo = () => {
   const html = document.documentElement;
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
-  const copy = document.getElementById("title");
-
   const frameCount = 480;
   const currentFrame = index => (
     `/assets/img/${index}.jpg`
@@ -22,9 +20,9 @@ const sectionFirst = () => {
 
   const img = new Image()
   img.src = currentFrame(1);
-  canvas.width= 1280;
-  canvas.height=740;
-  img.onload=function(){
+  canvas.width = 1280;
+  canvas.height = 740;
+  img.onload = () =>{
     context.drawImage(img, 0, 0);
   }
 
@@ -38,7 +36,6 @@ const sectionFirst = () => {
     const maxScrollTop = html.scrollHeight - window.innerHeight
     const scrollFraction = scrollTop / maxScrollTop;
     
-    copy.style.opacity = scrollFraction > 0.5 ? (1 - scrollFraction) : scrollFraction * 2;
     const frameIndex = Math.min(
       frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
@@ -57,22 +54,24 @@ const sectionFirst = () => {
   preloadImages()
 }
 
-const sectionSecond = () => {
-  const ScrollMain = window.document.getElementById('main-04');
-  const section = document.querySelector('.scroll-container.second')
-  const boxs = document.querySelectorAll(".horizon_box");
+const makeSection = () => {
+  const sections = document.querySelectorAll(".section");
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: section,
-        start:'top top',
-        end: 'bottom bottom',
-        markers: true,
-        scrub: 0,
-        pin: true,
-    }
-  })
+  sections.forEach((section) => {
+    const h1 = section.querySelector(".title");
 
-  tl.to(boxs, {xPercent: -500, duration:2, ease: "none", stagger:3})
-    .to({},{duration:1});
+    gsap.set(h1, { opacity: 0 });
+    
+    gsap.to(h1, {
+        opacity: 1,
+        scrollTrigger: {
+            trigger: section, 
+            start: "top center",
+            end: "bottom center",
+            markers: true,
+            toggleActions: "play reverse play reverse"
+        },
+        duration: 3
+    });
+});
 }

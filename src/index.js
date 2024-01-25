@@ -2,6 +2,7 @@ import { pageExample01} from "./script/example01";
 import { pageExample02 } from "./script/example02";
 import { pageExample03 } from "./script/example03";
 import { pageExample04 } from "./script/example04";
+import { pageExample05 } from "./script/example05";
 
 function init(){
   const page = document.querySelector("main")

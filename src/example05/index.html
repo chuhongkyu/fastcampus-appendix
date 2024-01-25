@@ -1,44 +1,53 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks</title>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../example05/index.css">
-</head>
-<body>
-    <main id="main-04">
-    <section class="first_section">
-
-    </section>
-
-    <section class="main_section">
-        <div id="LeftBox">
-            <div class="Title">
-                <h1>PICK</h1>
-                <h2>YOUR</h1>
-                <h3>FAVORITE</h2>
-            </div>
-            <div class="subTitle">
-                <h5>다양한 메뉴를 스타벅스에서 즐겨보세요.</h5>
-                <p>
-                    스타벅스만의 특별함을 경험할 수 있는 최상의 선택 음료, 스타벅스 커피와 완벽한 어울림을 자랑하는 푸드, 다양한 시도와 디자인으로 가치를 더하는 상품, 소중한 사람에게
-                    마음을
-                    전하는 가장 좋은 방법 스타벅스 카드
-                </p>
-                <span class="button">자세히 보기</span>
-            </div>
-            
+  </head>
+  <body>
+    <header>
+      <strong class="logo">Logo</strong>
+      <strong class="user"
+        >By <a target="_blank" href="#">USER</a></strong
+      >
+    </header>
+    <main id="main-05">
+      <div class="scroll-container">
+        <canvas id="scrollAnimation"></canvas>
+      </div>
+      
+      <section class="section">
+        <h1 class="title">City</h1>
+      </section>
+      <section class="section">
+        <h1 class="title">Seoul</h1>
+        <div class="conatiner-img">
+          <img class="icon-1" src="../assets/section2/text.png" />
+          <img class="icon-2" src="../assets/section2/pizza.png" />
+          <img class="icon-3" src="../assets/section2/tv.png" />
+          <img class="icon-4" src="../assets/section2/coffee.png" />
+          <img class="icon-5" src="../assets/section2/play.png" />
         </div>
-        <img class="photo_card" src="https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring2_pick_img.png" alt="">
-    </section>
-
-    <section class="last_section">
-        
-    </section>
-    <!-- <div class="test"></div> -->
+      </section>
+      <section class="section">
+        <div class="box_wrapper">
+          <div class="box box1">
+            <h1>1</h1>
+          </div>
+          <div class="box box2">
+            <h1>2</h1>
+          </div>
+          <div class="box box3">
+            <h1>3</h1>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h1 class="title">다다다</h1>
+      </section>
     </main>
-    <script src="../bundle.js"></script>
+  <script src="../bundle.js"></script>
 </body>
 </html>
