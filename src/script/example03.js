@@ -5,7 +5,7 @@ const canvas = document.getElementById("scrollAnimation");
 const context = canvas.getContext("2d");
 const copy = document.getElementById("title");
 
-const frameCount = 480;
+const frameCount = 350;
 const currentFrame = index => (
   `/assets/img/${index}.jpg`
 )

@@ -12,7 +12,7 @@ const makeMainVideo = () => {
   const html = document.documentElement;
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
-  const frameCount = 480;
+  const frameCount = 350;
   const currentFrame = index => (
     `/assets/img/${index}.jpg`
   )
