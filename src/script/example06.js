@@ -70,7 +70,7 @@ const makeSection = () => {
         scale: 1,
         stagger: 0.05,
         scrollTrigger: {
-            trigger: sections[1], 
+            trigger: sections[2], 
             start: "top center",
             end: "bottom center",
             markers: true,
@@ -82,7 +82,7 @@ const makeSection = () => {
     
     const tl = gsap.timeline({
         scrollTrigger: {
-            trigger: sections[2],
+            trigger: sections[3],
             pin: true,
             scrub: 0.3,
             start: "top top",
