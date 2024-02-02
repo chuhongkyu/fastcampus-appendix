@@ -7,7 +7,7 @@ const copy = document.getElementById("title");
 
 const frameCount = 350;
 const currentFrame = index => (
-  `/assets/img/${index}.jpg`
+  `assets/img/${index}.jpg`
 )
 
 const img = new Image()

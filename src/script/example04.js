@@ -15,7 +15,7 @@ const makeMainVideo = () => {
   const context = canvas.getContext("2d");
   const frameCount = 350;
   const currentFrame = index => (
-    `/assets/img/${index}.jpg`
+    `assets/img/${index}.jpg`
   )
 
   const img = new Image()
