@@ -5,37 +5,30 @@
     <title>패스트 캠퍼스 - 부록</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      html {
+      html, body {
+        width: 100%;
         height: 100vh;
-      }
-
-      body {
-        height: 500vh;
-        width: 100vh;
+        display: flex;
         justify-content: center;
-        background-color: black;
+        background-color: white;
+        padding: 5rem;
       }
-
-      canvas {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 100vw;
-        max-height: 100vh;
-      }
-
-      #copyExample {
-        color: white;
-        position: sticky;
-        font-size: 50px;
+      li:not(:last-of-type){
+        margin-bottom: 0.5rem;
       }
     </style>
   </head>
   <body>
     <main id="main">
-       
+      <h1>부록</h1>
+      <ul>
+        <li><a href="example01.html">example01</a></li>
+        <li><a href="example02.html">example02</a></li>
+        <li><a href="example03.html">example03</a></li>
+        <li><a href="example04.html">example04</a></li>
+        <li><a href="example05.html">example05</a></li>
+        <li><a href="example06.html">example06</a></li>
+      </ul>
     </main>
-    <script src="bundle.js"></script>
   </body>
 </html>
