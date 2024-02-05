@@ -1,7 +1,6 @@
 @import "reset.css";
 
 body {
-  height: 100vh;
   width: 100%;
   background-color: white;
   font-family: "Cerebri Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -31,7 +30,7 @@ strong{
   display: block;
 }
 
-#main-04{
+main{
   height: 100vh;
   width: 100%;
 }
@@ -114,6 +113,10 @@ h1{
 .icon-5 {
   bottom: -20px;
   left: 20px;
+}
+
+.box-section{
+  overflow-x: hidden;
 }
 
 .box h1 { font-size: 50px; text-align: centerspa; }
