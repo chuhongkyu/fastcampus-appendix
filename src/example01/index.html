@@ -8,7 +8,7 @@
     <style>
         body {
           margin: 0;
-          background: #000;
+          background: #fff;
           touch-action: pan-y;
           height: 100vh;
           overflow: auto;
@@ -16,7 +16,7 @@
         }
         main{
           width: 100%;
-          height: 250vh;
+          height: 320vh;
         }
         section {
           display: flex;
@@ -26,6 +26,8 @@
           position: fixed;
           z-index: 0;
           max-width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
         }
         .scroll-section {
           max-width: 998px;
@@ -47,8 +49,8 @@
 <body>
     <main id="main-01">
       <section>
-          <video id="video" width="998" height="560" playsinline poster="https://lqez.github.io/js/airpodsvf/video.jpg">
-            <source src="https://lqez.github.io/js/airpodsvf/video.mp4" type="video/mp4">
+          <video id="video" width="640" height="360" playsinline>
+            <source src="/assets/video/circle.mp4" type="video/mp4">
           </video>
           <div class="scroll-section">
             <h1>AirPods Pro</h1>
