@@ -1,6 +1,6 @@
 export function pageExample02 () {
   const html = document.documentElement;
-  const canvas = document.getElementById("scrollAnimation");
+  const canvas = document.querySelector("canvas");
   const context = canvas.getContext("2d");
 
   const frameCount = 148;
