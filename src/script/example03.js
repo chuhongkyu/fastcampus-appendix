@@ -3,7 +3,6 @@ export function pageExample03 () {
   const html = document.documentElement;
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
-  const copy = document.getElementById("title");
 
   const frameCount = 350;
   const currentFrame = index => (
@@ -28,7 +27,6 @@ export function pageExample03 () {
     const maxScrollTop = html.scrollHeight - window.innerHeight
     const scrollFraction = scrollTop / maxScrollTop;
     
-    copy.style.opacity = scrollFraction > 0.5 ? (1 - scrollFraction) : scrollFraction * 2;
     const frameIndex = Math.min(
       frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
