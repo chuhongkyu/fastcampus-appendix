@@ -94,12 +94,14 @@ const makeSection = () => {
         duration: 2,
         ease: "none"
     }, "<"); 
-    gsap.set(imgs, { opacity: 0, scale: 0 });
+
+    gsap.set(imgs, { opacity: 0, scale: 0});
 
     gsap.to(imgs, {
         opacity: 1,
         scale: 1,
         stagger: 0.04,
+        transformOrigin: "center center",
         scrollTrigger: {
             trigger: sections[2], 
             start: "top center",
