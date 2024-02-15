@@ -60,6 +60,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid green;
 }
 
 h3{
@@ -83,13 +84,10 @@ h1{
 }
 
 .conatiner-img{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  position: relative;
   width: 600px;
   height: 520px;
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 .conatiner-img img {
@@ -98,7 +96,7 @@ h1{
   transform-origin: center;
   width: auto;
   position: absolute;
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 .conatiner-img img:hover{ 

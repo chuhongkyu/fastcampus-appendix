@@ -104,9 +104,9 @@ const makeSection = () => {
         transformOrigin: "center center",
         scrollTrigger: {
             trigger: sections[2], 
-            start: "top center",
-            end: "bottom center",
-            // markers: true,
+            start: "top top",
+            markers: true,
+            pin:true,
             toggleActions: "play reverse play reverse"
         },
         ease: "elastic.inOut(1.2, 0.75)",
