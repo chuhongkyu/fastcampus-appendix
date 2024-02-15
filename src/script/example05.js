@@ -19,8 +19,13 @@ const makeMainVideo = () => {
 
   const img = new Image()
   img.src = currentFrame(1);
-  canvas.width = 1280;
-  canvas.height = 740;
+
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  canvas.width = viewportWidth;
+  canvas.height = viewportHeight;
+
   img.onload = () =>{
     context.drawImage(img, 0, 0);
   }
@@ -56,52 +61,62 @@ const makeMainVideo = () => {
 const makeSection = () => {
     const sections = document.querySelectorAll(".section");
     const imgs = document.querySelector(".conatiner-img")
-    const $sections = document.querySelectorAll(".box");
+    const Cards = document.querySelectorAll(".card");
 
+    const title1 = document.querySelector(".title1");
+    const title2 = document.querySelector(".title2");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+          trigger: sections[1], 
+          pin: true,
+          scrub: 0.3,
+          start: "top top",
+          end: "+=300%",
+          // markers: true,
+          toggleActions: "play reverse play reverse"
+      }
+    });
+
+    tl.from(title1, {
+        x: '-300%',
+        autoAlpha: 0,
+        duration: 2,
+        ease: "none"
+    });
+  
+    tl.from(title2, {
+        x: '300%',
+        autoAlpha: 0,
+        duration: 2,
+        ease: "none"
+    }, "<"); 
     gsap.set(imgs, { opacity: 0, scale: 0 });
 
     gsap.to(imgs, {
         opacity: 1,
         scale: 1,
-        stagger: 0.05,
+        stagger: 0.04,
         scrollTrigger: {
-            trigger: sections[1], 
+            trigger: sections[2], 
             start: "top center",
             end: "bottom center",
-            markers: true,
+            // markers: true,
             toggleActions: "play reverse play reverse"
         },
         ease: "elastic.inOut(1.2, 0.75)",
     });
 
     
-    const tl = gsap.timeline({
+    const t3 = gsap.timeline({
         scrollTrigger: {
-            trigger: sections[2],
+            trigger: sections[3],
             pin: true,
             scrub: 0.3,
             start: "top top",
             end: "+=300%",
         }
     });
-    tl.from($sections, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-    .to($sections, {duration: 3});
-
-  sections.forEach((section) => {
-    const h1 = section.querySelector(".title");
-
-    gsap.set(h1, { opacity: 0 });
-    
-    gsap.to(h1, {
-        opacity: 1,
-        scrollTrigger: {
-            trigger: section, 
-            start: "top center",
-            end: "bottom center",
-            markers: true,
-            toggleActions: "play reverse play reverse"
-        },
-        duration: 3
-    });
-});
+    t3.from(Cards, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
+    .to(Cards, {duration: 3});
 }
