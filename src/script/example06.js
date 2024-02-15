@@ -31,17 +31,32 @@ const makeMainVideo = () => {
     canvas.height = viewportHeight;
   }
 
+  let loadedImages = {};
+
   img.onload = () =>{
     const x = (canvas.width - img.width) / 2;
     const y = (canvas.height - img.height) / 2;
     context.drawImage(img, x, y);
   }
 
+  const preloadImages = () => {
+    for (let i = 1; i <= frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      loadedImages[i] = img;
+    }
+  };
+
+  preloadImages();
+
   const updateImage = index => {
-    img.src = currentFrame(index);
-    const x = (canvas.width - img.width) / 2;
-    const y = (canvas.height - img.height) / 2;
-    context.drawImage(img, x, y);
+    const loadedImage = loadedImages[index];
+    if (loadedImage) { 
+      const x = (canvas.width - loadedImage.width) / 2;
+      const y = (canvas.height - loadedImage.height) / 2;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(loadedImage, x, y);
+    }
   }
 
   window.addEventListener('scroll', () => {  
@@ -56,16 +71,6 @@ const makeMainVideo = () => {
     
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
-
-
-  const preloadImages = () => {
-    for (let i = 1; i < frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-    }
-  };
-
-  preloadImages()
 }
 
 const makeSection = () => {
