@@ -50,7 +50,7 @@ const makeMainVideo = () => {
     const scrollFraction = scrollTop / maxScrollTop;
     
     const frameIndex = Math.min(
-      frameCount - 1,
+      frameCount,
       Math.ceil(scrollFraction * frameCount)
     );
     

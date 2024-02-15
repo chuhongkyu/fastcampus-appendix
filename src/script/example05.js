@@ -12,7 +12,7 @@ const makeMainVideo = () => {
   const html = document.documentElement;
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
-  const frameCount = 130;
+  const frameCount = 129;
   const currentFrame = index => (
     `assets/img/dog_${index.toString().padStart(3, '0')}.jpg`
   )
@@ -41,7 +41,7 @@ const makeMainVideo = () => {
     const scrollFraction = scrollTop / maxScrollTop;
     
     const frameIndex = Math.min(
-      frameCount - 1,
+      frameCount,
       Math.ceil(scrollFraction * frameCount)
     );
     
