@@ -20,14 +20,11 @@ const makeMainVideo = () => {
   const img = new Image()
   img.src = currentFrame(1);
 
-  // const viewportWidth = window.innerWidth;
-  // const viewportHeight = window.innerHeight;
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
 
-  // canvas.width = viewportWidth;
-  // canvas.height = viewportHeight;
-
-  canvas.width = 1280;
-  canvas.height = 740;
+  canvas.width = viewportWidth;
+  canvas.height = viewportHeight;
 
   img.onload = () =>{
     context.drawImage(img, 0, 0);
@@ -49,6 +46,10 @@ const makeMainVideo = () => {
     );
     
     requestAnimationFrame(() => updateImage(frameIndex + 1))
+  });
+
+  window.addEventListener('resize',() => {
+
   });
 
   const preloadImages = () => {
