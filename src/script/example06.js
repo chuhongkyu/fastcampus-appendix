@@ -23,8 +23,8 @@ const makeMainVideo = () => {
   const viewportWidth = window.innerWidth;
   const viewportHeight = window.innerHeight;
   
-  if(viewportWidth <= 1280){
-    canvas.width = 1280;
+  if(viewportWidth <= 1024){
+    canvas.width = 1024;
     canvas.height = 720;
   }else{
     canvas.width = viewportWidth;
