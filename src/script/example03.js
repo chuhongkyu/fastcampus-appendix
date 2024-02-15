@@ -4,9 +4,9 @@ export function pageExample03 () {
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
 
-  const frameCount = 350;
+  const frameCount = 130;
   const currentFrame = index => (
-    `assets/img/${index}.jpg`
+    `assets/img/dog_${index.toString().padStart(3, '0')}.jpg`
   )
 
   const img = new Image()

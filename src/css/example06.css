@@ -125,7 +125,7 @@ h1{
   left: -20px;
 }
 
-.card-section{
+.card-section, .text-section{
   overflow-x: hidden;
 }
 

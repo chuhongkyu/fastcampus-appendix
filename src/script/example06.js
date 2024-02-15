@@ -22,34 +22,33 @@ const makeMainVideo = () => {
 
   const viewportWidth = window.innerWidth;
   const viewportHeight = window.innerHeight;
-
-  canvas.width = viewportWidth;
-  canvas.height = viewportHeight;
+  
+  if(viewportWidth <= 1280){
+    canvas.width = 1280;
+    canvas.height = 720;
+  }else{
+    canvas.width = viewportWidth;
+    canvas.height = viewportHeight;
+  }
 
   img.onload = () =>{
-    context.drawImage(img, 0, 0);
+    const x = (canvas.width - img.width) / 2;
+    const y = (canvas.height - img.height) / 2;
+    context.drawImage(img, x, y);
   }
 
   const updateImage = index => {
     img.src = currentFrame(index);
-    context.drawImage(img, 0, 0);
+    const x = (canvas.width - img.width) / 2;
+    const y = (canvas.height - img.height) / 2;
+    context.drawImage(img, x, y);
   }
 
   window.addEventListener('scroll', () => {  
-    const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollHeight - window.innerHeight
-    const scrollFraction = scrollTop / maxScrollTop;
-    
-    const frameIndex = Math.min(
-      frameCount - 1,
-      Math.ceil(scrollFraction * frameCount)
-    );
+    const scrollFraction = html.scrollTop / (html.scrollHeight - window.innerHeight);
+    const frameIndex = Math.round(scrollFraction * (frameCount - 1));
     
     requestAnimationFrame(() => updateImage(frameIndex + 1))
-  });
-
-  window.addEventListener('resize',() => {
-
   });
 
   const preloadImages = () => {
