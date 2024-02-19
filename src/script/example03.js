@@ -1,5 +1,5 @@
 
-export function pageExample03 () {
+function pageExample03 () {
   const html = document.documentElement;
   const canvas = document.getElementById("scrollAnimation");
   const context = canvas.getContext("2d");
@@ -44,3 +44,7 @@ export function pageExample03 () {
 
   preloadImages()
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample03()
+})

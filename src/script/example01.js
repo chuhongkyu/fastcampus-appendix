@@ -1,4 +1,4 @@
-export function pageExample01 () {
+function pageExample01 () {
   const FRAMES = 150;
   const FPS = 25;
   const video = document.getElementById('video');
@@ -13,3 +13,7 @@ export function pageExample01 () {
     video.currentTime = 0;
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample01()
+})

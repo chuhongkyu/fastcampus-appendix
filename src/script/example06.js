@@ -3,7 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger); 
 
-export function pageExample06 () {
+function pageExample06 () {
   makeMainVideo()
   makeSection()
   makeHeader()
@@ -180,3 +180,8 @@ const makeHeader = () => {
     lastScroll = currentScroll;
   });
 };
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample06()
+})

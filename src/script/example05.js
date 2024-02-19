@@ -3,7 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger); 
 
-export function pageExample05 () {
+function pageExample05 () {
   makeMainVideo()
   makeSection()
 }
@@ -59,64 +59,63 @@ const makeMainVideo = () => {
 }
 
 const makeSection = () => {
-    const sections = document.querySelectorAll(".section");
-    const imgs = document.querySelector(".conatiner-img")
-    const Cards = document.querySelectorAll(".card");
+  const sections = document.querySelectorAll(".section");
+  const imgs = document.querySelector(".conatiner-img")
+  const Cards = document.querySelectorAll(".card");
+  const title1 = document.querySelector(".title1");
+  const title2 = document.querySelector(".title2");
+  const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: sections[1], 
+        pin: true,
+        scrub: 0.3,
+        start: "top top",
+        end: "+=300%",
+        // markers: true,
+        toggleActions: "play reverse play reverse"
+    }
+  });
+  tl.from(title1, {
+      x: '-300%',
+      autoAlpha: 0,
+      duration: 2,
+      ease: "none"
+  });
 
-    const title1 = document.querySelector(".title1");
-    const title2 = document.querySelector(".title2");
-
-    const tl = gsap.timeline({
+  tl.from(title2, {
+      x: '300%',
+      autoAlpha: 0,
+      duration: 2,
+      ease: "none"
+  }, "<"); 
+  gsap.set(imgs, { opacity: 0, scale: 0 });
+  gsap.to(imgs, {
+      opacity: 1,
+      scale: 1,
+      stagger: 0.04,
       scrollTrigger: {
-          trigger: sections[1], 
+          trigger: sections[2], 
+          start: "top center",
+          end: "bottom center",
+          // markers: true,
+          toggleActions: "play reverse play reverse"
+      },
+      ease: "elastic.inOut(1.2, 0.75)",
+  });
+  
+  const t3 = gsap.timeline({
+      scrollTrigger: {
+          trigger: sections[3],
           pin: true,
           scrub: 0.3,
           start: "top top",
           end: "+=300%",
-          // markers: true,
-          toggleActions: "play reverse play reverse"
       }
-    });
-
-    tl.from(title1, {
-        x: '-300%',
-        autoAlpha: 0,
-        duration: 2,
-        ease: "none"
-    });
-  
-    tl.from(title2, {
-        x: '300%',
-        autoAlpha: 0,
-        duration: 2,
-        ease: "none"
-    }, "<"); 
-    gsap.set(imgs, { opacity: 0, scale: 0 });
-
-    gsap.to(imgs, {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.04,
-        scrollTrigger: {
-            trigger: sections[2], 
-            start: "top center",
-            end: "bottom center",
-            // markers: true,
-            toggleActions: "play reverse play reverse"
-        },
-        ease: "elastic.inOut(1.2, 0.75)",
-    });
-
-    
-    const t3 = gsap.timeline({
-        scrollTrigger: {
-            trigger: sections[3],
-            pin: true,
-            scrub: 0.3,
-            start: "top top",
-            end: "+=300%",
-        }
-    });
-    t3.from(Cards, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-    .to(Cards, {duration: 3});
+  });
+  t3.from(Cards, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
+  .to(Cards, {duration: 3});
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample05()
+})

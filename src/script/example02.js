@@ -1,4 +1,4 @@
-export function pageExample02 () {
+function pageExample02 () {
   const html = document.documentElement;
   const canvas = document.querySelector("canvas");
   const context = canvas.getContext("2d");
@@ -44,3 +44,7 @@ export function pageExample02 () {
 
   preloadImages()
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample02()
+})

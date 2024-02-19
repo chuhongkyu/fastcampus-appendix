@@ -3,8 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger); 
 
-export function pageExample04 () {
-
+function pageExample04 () {
   makeMainVideo()
   makeSection()
 }
@@ -76,3 +75,7 @@ const makeSection = () => {
     });
 });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageExample04()
+})

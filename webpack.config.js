@@ -14,21 +14,27 @@ const entryAndHtmlConfig = [
 ];
 
 const pluginHtml = entryAndHtmlConfig.map(config => {
-  return (
-    new HtmlWebpackPlugin({
-      template: config.htmlTemplate,
-      filename: `${config.name}.html`,
-    })
-  )
+  return new HtmlWebpackPlugin({
+    template: config.htmlTemplate,
+    filename: `${config.name}.html`,
+    chunks: [config.name]
+  });
 });
 
 module.exports = {
   mode: webpackMode,
-  entry: './src/index.js',
+  entry: {
+    example01: './src/script/example01.js',
+    example02: './src/script/example02.js',
+    example03: './src/script/example03.js',
+    example04: './src/script/example04.js',
+    example05: './src/script/example05.js',
+    example06: './src/script/example06.js',
+  },
   output: {
-    filename: 'main.js',
+    filename: 'script/[name].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
   },
   devServer: {
     port: 8080,
@@ -38,6 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
+      chunks: [],
     }),
     new CopyWebpackPlugin({
       patterns: [
