@@ -76,15 +76,17 @@ const makeMainVideo = () => {
 
 const makeSection = () => {
   const sections = document.querySelectorAll(".section");
-  const imgs = document.querySelector(".conatiner-img")
-  const cards = document.querySelectorAll(".card");
+  const icons = document.querySelectorAll(".icon-container img")
+  const explains = document.querySelectorAll(".product-explain");
+
+  const imgSection = document.querySelector(".img-container")
 
   const footer = document.querySelector("footer");
   const footerHeight = footer.clientHeight;
   console.log(footerHeight)
 
-  const title1 = document.querySelector(".title1");
-  const title2 = document.querySelector(".title2");
+  const title = document.querySelector(".title");
+
   const tl = gsap.timeline({
     scrollTrigger: {
         trigger: sections[1], 
@@ -96,59 +98,62 @@ const makeSection = () => {
         toggleActions: "play reverse play reverse"
     }
   });
-  tl.from(title1, {
-      x: '-300%',
+  tl.from(title, {
       autoAlpha: 0,
       duration: 2,
       ease: "none"
-  });
-
-  tl.from(title2, {
-      x: '300%',
-      autoAlpha: 0,
-      duration: 2,
-      ease: "none"
-  }, "<"); 
-
-  gsap.set(imgs, { opacity: 0, scale: 0});
-  gsap.to(imgs, {
-      opacity: 1,
-      scale: 1,
-      stagger: 0.04,
-      transformOrigin: "center center",
-      scrollTrigger: {
-          trigger: sections[2], 
-          start: "top top",
-          // markers: true,
-          pin: true,
-          toggleActions: "play reverse play reverse"
-      },
-      ease: "elastic.inOut(1.2, 0.75)",
   });
   
-  const t3 = gsap.timeline({
+  const t2 = gsap.timeline({
       scrollTrigger: {
-          trigger: sections[3],
+          trigger: sections[2],
           pin: true,
           scrub: 0.3,
           start: "top top",
           end: "+=300%",
       }
   });
-  t3.from(cards, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-  .to(cards, {duration: 3})
+  t2.from(explains, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
+  .to(explains, {duration: 3})
 
-  gsap.set(footer, { height: 0 })
-  const t4 = gsap.timeline({
-    scrollTrigger: {
-        trigger: sections[4],
-        start: "bottom bottom",
-        end: "bottom bottom",
-        // markers: true
-      }
+
+  gsap.set(icons, { opacity: 0, scale: 0});
+  gsap.set(icons[2], { opacity: 0, scale: 0, rotateZ: 35});
+  gsap.to(icons, {
+      opacity: 1,
+      scale: 1,
+      stagger: 0.04,
+      scrollTrigger: {
+          trigger: sections[3], 
+          start: "top top",
+          end: "+=300%",
+          // markers: true,
+          pin: true,
+          toggleActions: "play reverse play reverse"
+      },
+      ease: "elastic.inOut(1.2, 0.75)",
   });
-  t4.from(footer, { height: 0 })
-  .to(footer, { duration: 1, y: -100, height: footerHeight, ease: "power4.out" })
+
+  gsap.set(imgSection, { y: -100})
+  const t4 = gsap.timeline()
+  t4.fromTo(imgSection, {
+    y: -100
+  },
+  {
+    y: 0,
+    scale: 0.8,
+    duration: 2,
+    stagger: 0.5,
+    ease: "power4.out",
+    scrollTrigger: {
+      pin: sections[4],
+      markers: true,
+      scrub: true,
+      start: "top center",
+      end: "+=10000",
+      invalidateOnRefresh: true
+    }
+  })
 }
 
 const makeHeader = () => {
