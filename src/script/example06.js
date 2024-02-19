@@ -77,7 +77,7 @@ const makeMainVideo = () => {
 const makeSection = () => {
   const sections = document.querySelectorAll(".section");
   const icons = document.querySelectorAll(".icon-container img")
-  const explains = document.querySelectorAll(".product-explain");
+  const prodution = document.querySelector(".product-explain");
 
   const imgSection = document.querySelector(".img-container")
 
@@ -113,8 +113,10 @@ const makeSection = () => {
           end: "+=300%",
       }
   });
-  t2.from(explains, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-  .to(explains, {duration: 3})
+  t2.from(prodution, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
+  .to(prodution, { duration: 3 })
+  
+  gsap.to(prodution.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
 
   gsap.set(icons, { opacity: 0, scale: 0});

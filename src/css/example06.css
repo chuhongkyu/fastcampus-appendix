@@ -106,7 +106,7 @@ canvas {
 /* section2 */
 
 .product-section{
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .product-explain .pviot{
@@ -150,10 +150,11 @@ canvas {
   justify-content: center;
   border-radius: 50%;
   border: 2px solid rgb(237, 35, 75);
+  opacity: 0.4;
 }
 
 .product-explain h3{
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
   padding-left: 20px;
 }
 
@@ -208,8 +209,8 @@ canvas {
   right: -5%;
 }
 
-/* icon */
 
+/* section4 */
 .top-description{
   display: flex;
   gap: 50px;
