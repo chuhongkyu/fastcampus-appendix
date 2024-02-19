@@ -147,7 +147,7 @@ const makeSection = () => {
     ease: "power4.out",
     scrollTrigger: {
       pin: sections[4],
-      markers: true,
+      // markers: true,
       scrub: true,
       start: "top center",
       end: "+=10000",
