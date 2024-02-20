@@ -66,6 +66,8 @@ module.exports = {
         { from: './src/css', to: 'css' }
       ]
     })
-  ]
-
+  ],
+  // optimization: {
+  //   minimize: false
+  // },
 };
