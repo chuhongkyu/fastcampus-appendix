@@ -1,6 +1,6 @@
 function pageExample01 () {
   const FRAMES = 150;
-  const FPS = 25;
+  const FPS = 29.97;
   const video = document.getElementById('video');
 
   window.addEventListener('scroll', () => {
