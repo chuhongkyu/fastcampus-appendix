@@ -43,7 +43,7 @@ main{
 }
 
 h1{
-  font-size: max(2.7083vw, 38px);
+  font-size: max(3.7500vw, 38px);
   color: black;
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -105,7 +105,7 @@ canvas {
 
 .text-section .title p{ 
   padding-bottom: 0.5rem;
-  font-size: 18px;
+  font-size: max(1.4583vw, 18px);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 150%;
