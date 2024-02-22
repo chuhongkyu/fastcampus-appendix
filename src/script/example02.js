@@ -1,17 +1,19 @@
+//https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/0001.jpg
+
 function pageExample02 () {
   const html = document.documentElement;
   const canvas = document.querySelector("canvas");
   const context = canvas.getContext("2d");
 
-  const frameCount = 148;
+  const frameCount = 27;
   const currentFrame = index => (
-    `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+    `assets/flower/flower_out${index.toString().padStart(4, '0')}.jpg`
   )
 
   const img = new Image()
   img.src = currentFrame(1);
-  canvas.width = 1158;
-  canvas.height = 770;
+  canvas.width = 720;
+  canvas.height = 720;
   img.onload = () => {
     context.drawImage(img, 0, 0);
   }
@@ -23,7 +25,6 @@ function pageExample02 () {
 
   window.addEventListener('scroll', () => {  
     const scrollTop = html.scrollTop;
-
     const maxScrollTop = html.scrollHeight - window.innerHeight
     const scrollFraction = scrollTop / maxScrollTop;
 
@@ -31,7 +32,6 @@ function pageExample02 () {
       frameCount - 1,
       Math.ceil(scrollFraction * frameCount)
     );
-    
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
 
