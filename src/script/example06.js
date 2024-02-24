@@ -83,7 +83,6 @@ const makeSection = () => {
 
   const footer = document.querySelector("footer");
   const footerHeight = footer.clientHeight;
-  console.log(footerHeight)
 
   const title = document.querySelector(".title");
 
