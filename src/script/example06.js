@@ -77,7 +77,7 @@ const makeMainVideo = () => {
 const makeSection = () => {
   const sections = document.querySelectorAll(".section");
   const icons = document.querySelectorAll(".icon-container img")
-  const prodution = document.querySelector(".product-explain");
+  const production = document.querySelector(".product-explain");
 
   const imgSection = document.querySelector(".img-container")
 
@@ -112,15 +112,14 @@ const makeSection = () => {
           end: "+=300%",
       }
   });
-  t2.from(prodution, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
-  .to(prodution, { duration: 3 })
+  t2.from(production, {x: '300%', autoAlpha: 0, duration:2, ease: "none", stagger:3})
+  .to(production, { duration: 3 })
   
-  gsap.to(prodution.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
+  gsap.to(production.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
 
-  gsap.set(icons, { opacity: 0, scale: 0});
   gsap.set(icons[2], { opacity: 0, scale: 0, rotateZ: 35});
-  gsap.to(icons, {
+  const t3 = gsap.timeline({
       opacity: 1,
       scale: 1,
       stagger: 0.04,
@@ -134,8 +133,8 @@ const makeSection = () => {
       },
       ease: "elastic.inOut(1.2, 0.75)",
   });
+  t3.from(icons, { opacity: 0, scale: 0})
 
-  gsap.set(imgSection, { y: -100})
   const t4 = gsap.timeline()
   t4.fromTo(imgSection, {
     y: -100
