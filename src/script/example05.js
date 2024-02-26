@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 function pageExample05 () {
   makeMainVideo()
   makeSection()
-  makeHeader()
 }
 
 const makeMainVideo = () => {
@@ -117,68 +116,7 @@ const makeSection = () => {
   
   gsap.to(production.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
-
-  gsap.set(icons[2], { opacity: 0, scale: 0, rotateZ: 35});
-  const t3 = gsap.timeline({
-      opacity: 1,
-      scale: 1,
-      stagger: 0.04,
-      scrollTrigger: {
-          trigger: sections[3], 
-          start: "top top",
-          end: "+=300%",
-          // markers: true,
-          pin: true,
-          toggleActions: "play reverse play reverse"
-      },
-      ease: "elastic.inOut(1.2, 0.75)",
-  });
-  t3.from(icons, { opacity: 0, scale: 0})
-
-  const t4 = gsap.timeline()
-  t4.fromTo(imgSection, {
-    y: -100
-  },
-  {
-    y: 0,
-    scale: 0.8,
-    duration: 2,
-    stagger: 0.5,
-    ease: "power4.out",
-    scrollTrigger: {
-      pin: sections[4],
-      // markers: true,
-      scrub: true,
-      start: "top center",
-      end: "+=10000",
-      invalidateOnRefresh: true
-    }
-  })
 }
-
-const makeHeader = () => {
-  const body = document.querySelector("body");
-  let lastScroll = 0;
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-      body.classList.remove("up");
-      return;
-    }
-    
-    if (currentScroll > lastScroll && !body.classList.contains("down")) {
-      body.classList.remove("up");
-      body.classList.add("down");
-    } else if (currentScroll < lastScroll && body.classList.contains("down")) {
-      body.classList.remove("down");
-      body.classList.add("up");
-    }
-    lastScroll = currentScroll;
-  });
-};
-
 
 document.addEventListener('DOMContentLoaded', () => {
   pageExample05()
