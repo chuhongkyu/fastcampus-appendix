@@ -100,7 +100,7 @@ const makeSection = () => {
   tl.from(title, {
       autoAlpha: 0,
       duration: 2,
-      ease: "none"
+      ease: "power3.inOut"
   });
   
   const t2 = gsap.timeline({
@@ -118,7 +118,7 @@ const makeSection = () => {
   gsap.to(production.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
 
-  gsap.set(icons[2], { opacity: 0, scale: 0, rotateZ: 35});
+  gsap.set(icons[2], { rotateZ: 35});
   const t3 = gsap.timeline({
       opacity: 1,
       scale: 1,
