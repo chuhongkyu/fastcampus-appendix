@@ -75,13 +75,7 @@ const makeMainVideo = () => {
 
 const makeSection = () => {
   const sections = document.querySelectorAll(".section");
-  const icons = document.querySelectorAll(".icon-container img")
   const production = document.querySelector(".product-explain");
-
-  const imgSection = document.querySelector(".img-container")
-
-  const footer = document.querySelector("footer");
-  const footerHeight = footer.clientHeight;
 
   const title = document.querySelector(".title");
 

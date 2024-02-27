@@ -177,47 +177,6 @@ canvas {
 
 /* section3 시작 */
 
-.icon-container{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
-  /* border: 1px solid green; */
-}
-
-.icon-container img {
-  height: 300px;
-  scale: 1;
-  transform-origin: center;
-  width: auto;
-  position: absolute;
-}
-
-.icon-1 {
-  top: 10%;
-  left: -5%;
-}
-
-.icon-2 {
-  top: -15%;
-  right: 30%;
-}
-
-.icon-3 {
-  bottom: 10%;
-  right: 15%;
-}
-
-.icon-4 {
-  bottom: -10%;
-  left: 15%;
-}
-
-.icon-5 {
-  top: 33.3%;
-  right: -5%;
-}
-
 
 /* section4 */
 .top-description{
