@@ -119,12 +119,8 @@ const makeSection = () => {
   gsap.to(prodution.querySelector('.dot'), { duration: 1, opacity: 1, scale: 1.2, repeat: Infinity})
 
 
-  gsap.set(icons, { opacity: 0, scale: 0});
-  gsap.set(icons[2], { opacity: 0, scale: 0, rotateZ: 35});
-  gsap.to(icons, {
-      opacity: 1,
-      scale: 1,
-      stagger: 0.04,
+  gsap.set(icons[2], { rotateZ: 35});
+  const t3 = gsap.timeline({
       scrollTrigger: {
           trigger: sections[3], 
           start: "top top",
@@ -135,8 +131,13 @@ const makeSection = () => {
       },
       ease: "elastic.inOut(1.2, 0.75)",
   });
+  t3.from(icons, { 
+    opacity: 0, 
+    scale: 0,
+    stagger: 0.04  
+  });
 
-  gsap.set(imgSection, { y: -100})
+  
   const t4 = gsap.timeline()
   t4.fromTo(imgSection, {
     y: -100
@@ -145,7 +146,6 @@ const makeSection = () => {
     y: 0,
     scale: 0.8,
     duration: 2,
-    stagger: 0.5,
     ease: "power4.out",
     scrollTrigger: {
       pin: sections[4],
