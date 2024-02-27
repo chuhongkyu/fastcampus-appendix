@@ -120,9 +120,6 @@ const makeSection = () => {
 
   gsap.set(icons[2], { rotateZ: 35});
   const t3 = gsap.timeline({
-      opacity: 1,
-      scale: 1,
-      stagger: 0.04,
       scrollTrigger: {
           trigger: sections[3], 
           start: "top top",
@@ -133,7 +130,11 @@ const makeSection = () => {
       },
       ease: "elastic.inOut(1.2, 0.75)",
   });
-  t3.from(icons, { opacity: 0, scale: 0})
+  t3.from(icons, { 
+    opacity: 0, 
+    scale: 0,
+    stagger: 0.04  
+  });
 
   const t4 = gsap.timeline()
   t4.fromTo(imgSection, {
@@ -143,7 +144,6 @@ const makeSection = () => {
     y: 0,
     scale: 0.8,
     duration: 2,
-    stagger: 0.5,
     ease: "power4.out",
     scrollTrigger: {
       pin: sections[4],

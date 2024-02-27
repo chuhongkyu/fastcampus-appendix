@@ -20,43 +20,15 @@ const makeMainVideo = () => {
   const img = new Image()
   img.src = currentFrame(1);
 
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-  
-  if(viewportWidth <= 1024){
-    canvas.width = 1024;
-    canvas.height = 720;
-  }else{
-    canvas.width = viewportWidth;
-    canvas.height = viewportHeight;
-  }
-
-  let loadedImages = {};
-
+  canvas.width = 1280;
+  canvas.height = 740;
   img.onload = () =>{
-    const x = (canvas.width - img.width) / 2;
-    const y = (canvas.height - img.height) / 2;
-    context.drawImage(img, x, y);
+    context.drawImage(img, 0, 0);
   }
-
-  const preloadImages = () => {
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      loadedImages[i] = img;
-    }
-  };
-
-  preloadImages();
 
   const updateImage = index => {
-    const loadedImage = loadedImages[index];
-    if (loadedImage) { 
-      const x = (canvas.width - loadedImage.width) / 2;
-      const y = (canvas.height - loadedImage.height) / 2;
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(loadedImage, x, y);
-    }
+    img.src = currentFrame(index);
+    context.drawImage(img, 0, 0);
   }
 
   window.addEventListener('scroll', () => {  
@@ -71,6 +43,15 @@ const makeMainVideo = () => {
     
     requestAnimationFrame(() => updateImage(frameIndex + 1))
   });
+
+  const preloadImages = () => {
+    for (let i = 1; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+    }
+  };
+
+  preloadImages()
 }
 
 const makeSection = () => {
