@@ -1,12 +1,14 @@
 import gsap from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger); 
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
 
 function pageExample06 () {
   makeMainVideo()
   makeSection()
   makeHeader()
+  makeFooter()
 }
 
 const makeMainVideo = () => {
@@ -81,9 +83,6 @@ const makeSection = () => {
 
   const imgSection = document.querySelector(".img-container")
 
-  const footer = document.querySelector("footer");
-  const footerHeight = footer.clientHeight;
-
   const title = document.querySelector(".title");
 
   const tl = gsap.timeline({
@@ -154,6 +153,7 @@ const makeSection = () => {
       invalidateOnRefresh: true
     }
   })
+
 }
 
 const makeHeader = () => {
@@ -178,6 +178,13 @@ const makeHeader = () => {
     lastScroll = currentScroll;
   });
 };
+
+const makeFooter = () => {
+  const footerNav = document.querySelector(".footer-nav");
+  footerNav.querySelector('.nav-1').addEventListener("click",()=>{
+    gsap.to(window, { duration: 1, scrollTo: "#TOP" });
+  })
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
